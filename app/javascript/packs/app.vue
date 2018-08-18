@@ -1,17 +1,23 @@
 <template>
   <div id="app">
-    <p>{{ message }}</p>
-    <router-view></router-view>
+      <navigationbar></navigationbar>
+      <p>{{ message }}</p>
+      <router-view></router-view>
   </div>
 </template>
 
 <script>
+import Header from './components/Header.vue'
+
 export default {
-  data: function () {
-    return {
-      message: "Hello Vue!"
+    data: function () {
+        return {
+            message: "Hello Vue!"
+        }
+    },
+    components: {
+        'navigationbar': Header
     }
-  }
 }
 </script>
 
