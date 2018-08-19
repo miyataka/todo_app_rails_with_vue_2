@@ -1,15 +1,11 @@
 <template>
   <div id="app">
-      <navigationbar></navigationbar>
-      <p>{{ message }}</p>
-      <router-view></router-view>
-      <material/>
+      <landing></landing>
   </div>
 </template>
 
 <script>
-import Header from './components/Header.vue'
-import Material from './components/MaterialSample.vue'
+import Landing from './components/Landing.vue'
 
 export default {
     data: function () {
@@ -18,15 +14,10 @@ export default {
         }
     },
     components: {
-        'navigationbar': Header,
-        'material': Material
+        'landing': Landing,
     }
 }
 </script>
 
 <style scoped>
-p {
-  font-size: 2em;
-  text-align: center;
-}
 </style>
