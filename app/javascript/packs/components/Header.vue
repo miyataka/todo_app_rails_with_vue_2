@@ -1,26 +1,24 @@
 <template>
-    <header id="header" class="row">
-        <div id="logo" class="col">
-            <p>TODO-APP</p>
-        </div>
-        <div id="menu" class="col">
-            <p>header-menu</p>
-        </div>
-        <p>{{ message }}</p>
+    <header id="header">
+        <md-toolbar class="md-accent" md-elevation="1">
+            <h3 class="md-title" style="flex: 1">TODO-APP</h3>
+            <md-button>Refresh</md-button>
+            <md-button class="md-primary">Create</md-button>
+        </md-toolbar>
     </header>
 </template>
 
 <script>
 export default {
-    name: 'landing',
+    name: 'Header-toolbar',
     data: function () {
         return {
-            message: 'i am header.'
         }
     }
 }
 </script>
 
 <style>
+
 </style>
 

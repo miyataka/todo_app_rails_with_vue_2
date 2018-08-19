@@ -3,11 +3,13 @@
       <navigationbar></navigationbar>
       <p>{{ message }}</p>
       <router-view></router-view>
+      <material/>
   </div>
 </template>
 
 <script>
 import Header from './components/Header.vue'
+import Material from './components/MaterialSample.vue'
 
 export default {
     data: function () {
@@ -16,7 +18,8 @@ export default {
         }
     },
     components: {
-        'navigationbar': Header
+        'navigationbar': Header,
+        'material': Material
     }
 }
 </script>
