@@ -20,22 +20,22 @@
         </md-toolbar>
 
         <md-list>
-          <md-list-item to="#">
+            <md-list-item to="/inbox">
               <md-icon>inbox</md-icon>
               <span class="md-list-item-text">Inbox</span>
           </md-list-item>
 
-          <md-list-item to="#">
+          <md-list-item to="/today">
             <md-icon>today</md-icon>
             <span class="md-list-item-text">Today</span>
           </md-list-item>
 
-          <md-list-item to="#">
+          <md-list-item to="/next7days">
             <md-icon>date_range</md-icon>
             <span class="md-list-item-text">Next 7 days</span>
           </md-list-item>
 
-          <md-list-item to="#">
+          <md-list-item to="/overdue">
             <md-icon>error</md-icon>
             <span class="md-list-item-text">Over Due</span>
           </md-list-item>
@@ -53,12 +53,12 @@
   export default {
     name: 'Landing',
     data: () => ({
-      menuVisible: false
+      menuVisible: false,
     }),
     methods: {
       toggleMenu () {
         this.menuVisible = !this.menuVisible
-      }
+      },
     }
   }
 </script>
@@ -67,5 +67,9 @@
   .md-app {
       height: 100%;
       min-height: 350px;
+  }
+  .router-link-active {
+      background: rgba(68,138,255,0.15);
+      /*color: #448aff;*/
   }
 </style>
