@@ -1,7 +1,7 @@
 <template>
   <div class="table">
       <md-field class="md-layout-item">
-          <label><md-icon>search</md-icon>search tasks ...</label>
+          <label><md-icon>search</md-icon>search by taskname ...</label>
           <md-input name="query" v-model="searchQuery"></md-input>
           <md-button class="md-primary md-fab md-mini"><md-icon>search</md-icon></md-button>
       </md-field>
@@ -27,20 +27,20 @@ export default {
     return {
 	  searchQuery: '',
       newTask: '',
-	  gridColumns: ['name', 'is_done', 'due'],
+	  gridColumns: ['is_done', 'name', 'due'],
 	  gridData: [
-	    { name: 'Sample Task1', is_done: true, due: "2018/08/19"},
-	    { name: 'Sample Task2', is_done: true, due: "2018/08/18"},
-	    { name: 'Sample Task3', is_done: true, due: "2018/08/17"},
-	    { name: 'Sample Task4', is_done: true, due: "2018/08/17"},
-	    { name: 'Sample Task5', is_done: true, due: "2018/08/17"},
-	    { name: 'Sample Task6', is_done: true, due: "2018/08/17"},
-	    { name: 'Sample Task7', is_done: true, due: "2018/08/17"},
-	    { name: 'Sample Task8', is_done: true, due: "2018/08/17"},
-	    { name: 'Chuck Norris', is_done: Infinity, due: null },
-	    { name: 'Bruce Lee', is_done: 9000, due: null },
-	    { name: 'Jackie Chan', is_done: 7000, due: null },
-	    { name: 'Jet Li', is_done: 8000, due: null },
+	    { name: 'Sample Task1', is_done: true,     due: "2018/08/19"},
+	    { name: 'Sample Task2', is_done: true,     due: "2018/08/18"},
+	    { name: 'Sample Task3', is_done: true,     due: "2018/08/17"},
+	    { name: 'Sample Task4', is_done: true,     due: "2018/08/17"},
+	    { name: 'Sample Task5', is_done: true,     due: "2018/08/17"},
+	    { name: 'Sample Task6', is_done: true,     due: "2018/08/17"},
+	    { name: 'Sample Task7', is_done: true,     due: "2018/08/17"},
+	    { name: 'Sample Task8', is_done: true,     due: "2018/08/17"},
+	    { name: 'Chuck Norris', is_done: false,    due: null },
+	    { name: 'Bruce Lee',    is_done: false,    due: null },
+	    { name: 'Jackie Chan',  is_done: false,    due: null },
+	    { name: 'Jet Li',       is_done: false,    due: null },
 	  ]
     }
   },

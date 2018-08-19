@@ -3,27 +3,21 @@
       <md-table-toolbar>
           <h1 class="md-title">ToDos</h1>
       </md-table-toolbar>
-      <md-table-row slot="md-table-row" slot-scope="{ item }">
-          <md-table-cell md-label="is_done" md-sort-by="is_done">{{ item.is_done }}</md-table-cell>
-          <md-table-cell md-label="name" md-sort-by="name">{{ item.name }}</md-table-cell>
-          <md-table-cell md-label="due" md-sort-by="due">{{ item.due }}</md-table-cell>
-      </md-table-row>
-      <!--
-      <md-table-row>
-        <md-table-head v-for="key in columns"
-          @click="sortBy(key)"
+      <tr class="md-table-head">
+        <th clsss="md-table-head" v-for="key in columns"
+          v-on:click="sortBy(key)"
           :class="{ active: sortKey == key }">
           {{ key | capitalize }}
-          <span class="arrow" :class="sortOrders[key] > 0 ? 'asc' : 'dsc'">
-          </span>
-        </md-table-head>
-      </md-table-row>
-      <md-table-row v-for="entry in filteredData">
-        <md-table-cell v-for="key in columns">
-          {{ entry[key] }}
-        </md-table-cell>
-      </md-table-row>
-      -->
+          <span class="arrow" :class="sortOrders[key] > 0 ? 'asc' : 'dsc'"></span>
+        </th>
+      </tr>
+      <tr class="md-table-cell" v-for="entry in filteredData">
+        <td v-for="key in columns" >
+            <input type="checkbox" v-if="key == 'is_done' && entry[key] == true" checked="checked">
+            <input type="checkbox" v-else-if="key == 'is_done'">
+            <span v-else> {{ entry[key] }}</span>
+        </td>
+      </tr>
   </md-table>
 </template>
 
@@ -53,11 +47,10 @@ export default {
   	  let order = this.sortOrders[sortKey] || 1;
   	  let data = this.data;
   	  if (filterKey) {
-        data = data.filter(function (row) {
-            return Object.keys(row).some(function(key) {
-                return String(row[key]).toLowerCase().indexOf(filterKey) > -1
-            })
-        })
+          // filter by task name
+          data = data.filter(function (row) {
+              return String(row['name']).toLowerCase().indexOf(filterKey) > -1
+          })
       }
       if (sortKey) {
         data = data.slice().sort(function (a, b) {
@@ -85,4 +78,41 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+th {
+    font-size: 1.2em;
+    color: white;
+    background: #448aff;
+    height: 20px;
+    padding: 0px 0px 0px 10px;
+}
+
+td {
+    /*
+    border-right: solid 1px;
+    border-right-color: #C0C0C0;
+     */
+    border-bottom: solid 0.5px;
+    border-bottom-color: #C0C0C0;
+    padding: 0px 0px 0px 10px;
+}
+.arrow {
+  display: inline-block;
+  vertical-align: middle;
+  width: 0;
+  height: 0;
+  margin-left: 5px;
+  opacity: 0.66;
+}
+
+.arrow.asc {
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-bottom: 4px solid #fff;
+}
+
+.arrow.dsc {
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-top: 4px solid #fff;
+}
 </style>
