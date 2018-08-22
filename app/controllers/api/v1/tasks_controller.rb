@@ -1,7 +1,7 @@
 class Api::V1::TasksController < ApplicationController
     #GET /api/v1/tasks
     def index
-        @tasks = Task.order('update_at DESC')
+        @tasks = Task.order('updated_at DESC')
     end
 
     # POST /api/v1/tasks

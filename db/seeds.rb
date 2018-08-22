@@ -5,3 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+3.times {|i| Task.create!(name: 'Sample Task' + i.to_s)}
+3.times { Task.create!(name: 'Sample Task', is_done: true)}
+3.times { Task.create!(name: 'Sample Task', is_done: true, due: Date.today()) }
