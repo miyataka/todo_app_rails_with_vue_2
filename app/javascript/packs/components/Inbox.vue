@@ -5,10 +5,10 @@
           <md-input name="query" v-model="searchQuery"></md-input>
           <md-button class="md-primary md-fab md-mini"><md-icon>search</md-icon></md-button>
       </md-field>
-      <md-field class="md-layout-item" @submit="createTask()">
+      <md-field class="md-layout-item">
           <label><md-icon>edit</md-icon>Create Task ...</label>
-          <md-input type="text" v-model="newTask"></md-input>
-          <md-button type="submit" @click="createTask()" class="md-accent md-fab md-mini"><md-icon>add</md-icon></md-button>
+          <md-input v-model="newTask" @keyup.ctrl.enter="createTask"></md-input>
+          <md-button type="submit" @click="createTask" class="md-accent md-fab md-mini"><md-icon>add</md-icon></md-button>
       </md-field>
     <grid
       :data="gridData"
@@ -37,7 +37,6 @@ export default {
   components: { Grid },
   mounted: function () {
       this.fetchTasks();
-      this.ready();
   },
   methods: {
     fetchTasks: function() {
@@ -60,13 +59,6 @@ export default {
                 console.log(error)
             });
     },
-    ready: function() {
-        document.onkeyup = function(e) {
-            if (e.ctrlKey && e.which == 13) {
-                createTask;
-            }
-        }
-    }
   }
 }
 </script>
